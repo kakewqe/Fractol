@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zack <zack@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:15:24 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/20 09:53:06 by zack             ###   ########.fr       */
+/*   Updated: 2023/09/20 12:11:56 by zachamou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <math.h>
 
-# define WIN_SIZE 800
+# define WIN_SIZE 900
 # define ESC_KEY 65307
 # define MOUSE_UP 4
 # define MOUSE_DOWN 5

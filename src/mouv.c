@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mouv.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zachamou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/20 12:07:12 by zachamou          #+#    #+#             */
+/*   Updated: 2023/09/20 12:07:16 by zachamou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
@@ -29,7 +40,7 @@ int	zoom(int keycode, int x, int y, t_data *data)
 	double	dx;
 	double	dy;
 
-	zoom_factor = 0.8;
+	zoom_factor = 0.5;
 	if (keycode == MOUSE_DOWN || keycode == MOUSE_UP)
 	{
 		if (keycode == MOUSE_DOWN)
