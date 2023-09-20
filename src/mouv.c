@@ -9,7 +9,7 @@ void	my_putpixel(t_data *data, int x, int y, int color)
 		*(unsigned int *)dst = color;
 }
 
-int	arrow_move(int keycode, t_data *data)
+int	mouse_and_esc(int keycode, t_data *data)
 {
 	if (keycode == ESC_KEY)
 		exit(EXIT_FAILURE);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zachamou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: zack <zack@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:15:24 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/18 21:28:24 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/20 09:53:06 by zack             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@
 # include <math.h>
 
 # define WIN_SIZE 800
-# define LEFT_KEY 123
-# define RIGHT_KEY 124
-# define DOWN_KEY 125
-# define UP_KEY 126
 # define ESC_KEY 65307
 # define MOUSE_UP 4
 # define MOUSE_DOWN 5
@@ -61,7 +57,7 @@ char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *str);
 int		ft_strcmp(char *s1, char *s2);
 
-int		available_fractals(char **av);
+int		error_fractals(char **av);
 void	error_phrase(void);
 
 void	mandelbrot(t_data *p);
@@ -70,7 +66,7 @@ int		iterate_mandelbrot(t_data *p);
 void	julia(char *av, t_data *data);
 int		iterate_julia(char *av, t_data *data);
 
-int		arrow_move(int keycode, t_data *p);
+int		mouse_and_esc(int keycode, t_data *data);
 int		zoom(int keycode, int x, int y, t_data *p);
 
 #endif

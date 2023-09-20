@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zack <zack@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:33:06 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/18 23:00:11 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/20 09:42:00 by zack             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ int	iterate_julia(char *av, t_data *data)
 {
 	if (!ft_strcmp(av, "julia.1"))
 	{
-		data->c_re = -0.2321;
-		data->c_im = -0.835;
+		data->c_re = -0.56667;
+		data->c_im = -.5;
 	}
 	else if (!ft_strcmp(av, "julia.2"))
 	{
-		data->c_re = -0.3842;
-		data->c_im = -0.70176;
+		data->c_re = -0.74543;
+		data->c_im = 0.11301;
 	}
 	else
 	{
-		data->c_re = 0.01;
-		data->c_im = 0.285;
+		data->c_re = -0.7;
+    	data->c_im = 0.27015;
 	}
 	while (data->n < 100 && data->re * data->re + data->im * data->im < 4)
 	{

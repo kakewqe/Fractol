@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zack <zack@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:14:22 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/18 23:00:29 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/20 09:51:33 by zack             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	hooks(t_data *data)
 {
-	mlx_key_hook(data->win, arrow_move, data);
+	mlx_key_hook(data->win, mouse_and_esc, data);
 	mlx_hook(data->win, 17, 0, exit_when_close, data);
 	mlx_mouse_hook(data->win, zoom, data);
 	mlx_mouse_hook(data->win, zoom, data);
@@ -57,7 +57,7 @@ int	main(int ac, char **av)
 	data->zoom = 4.0;
 	create_window(data);
 	create_image(data);
-	if (ac != 2 || available_fractals(av))
+	if (ac != 2 || error_fractals(av))
 		error_phrase();
 	fractale(av[1], data);
 	hooks(data);
