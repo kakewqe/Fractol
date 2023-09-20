@@ -6,7 +6,7 @@
 /*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:33:06 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/20 17:07:25 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:49:12 by zachamou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ int	iterate_julia(char *av, t_data *data)
 {
 	if (!ft_strcmp(av, "julia.1"))
 	{
-		data->c_re = -0.56667;
-		data->c_im = -.5;
+		data->c_re = -0.7017;
+		data->c_im = -0.3842;
 	}
 	else if (!ft_strcmp(av, "julia.2"))
 	{
-		data->c_re = -0.74543;
-		data->c_im = 0.11301;
+		data->c_re = -0.3842;
+		data->c_im = -0.7017;
 	}
 	else
 	{
-		data->c_re = -0.7;
-		data->c_im = 0.27015;
+		data->c_re = 0.3954;
+		data->c_im = 0.3945;
 	}
 	while (data->n < 100 && data->re * data->re + data->im * data->im < 4)
 	{
@@ -54,7 +54,7 @@ void	julia(char *av, t_data *data)
 				+ data->y;
 			if (data->n < 100)
 				my_putpixel(data, data->i, data->j,
-					iterate_julia(av, data) * 0x000f0f / 100);
+					iterate_julia(av, data) * 0x000f0f * 100);
 			data->j++;
 		}
 		data->i++;
