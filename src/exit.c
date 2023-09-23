@@ -6,7 +6,7 @@
 /*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:44:29 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/20 12:13:07 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/23 06:25:12 by zachamou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 int	error_fractals(char **av)
 {
 	if (!ft_strcmp(av[1], "julia") || !ft_strcmp(av[1], "julia.1")
-		|| !ft_strcmp(av[1], "julia.2")
-		|| !ft_strcmp(av[1], "mandelbrot"))
+		|| !ft_strcmp(av[1], "julia.2") || !ft_strcmp(av[1], "mandelbrot"))
 		return (0);
 	return (1);
 }
 
-void	error_phrase(void)
+void	ft_error(void)
 {
 	write(1, "---------------------------\n", 28);
 	write(1, "     mandelbrot\n", 17);
@@ -29,11 +28,16 @@ void	error_phrase(void)
 	write(1, "    julia.1\n", 13);
 	write(1, "    julia.2\n", 13);
 	write(1, "----------------------------", 27);
-	exit(EXIT_FAILURE);
 }
 
-int	exit_when_close(void)
+int	ft_close(t_data *data)
 {
-	exit(EXIT_FAILURE);
-	return (0);
+	mlx_destroy_image(data->ptr, data->img);
+	mlx_destroy_window(data->ptr, data->win);
+	mlx_loop_end(data->ptr);
+	mlx_destroy_display(data->ptr);
+	free(data->ptr);
+	free(data->fractal);
+	// free(data);
+	exit(0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouv.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zachamou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:07:12 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/20 12:07:16 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/23 06:24:57 by zachamou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ void	my_putpixel(t_data *data, int x, int y, int color)
 	char	*dst;
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-		*(unsigned int *)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 int	mouse_and_esc(int keycode, t_data *data)
 {
 	if (keycode == ESC_KEY)
-		exit(EXIT_FAILURE);
+		ft_close(data);
 	mlx_clear_window(data->ptr, data->win);
-	if (!ft_strcmp(data->fractal, "julia")
-		|| !ft_strcmp(data->fractal, "julia.1")
-		|| !ft_strcmp(data->fractal, "julia.2"))
+	if (!ft_strcmp(data->fractal, "julia") || !ft_strcmp(data->fractal,
+			"julia.1") || !ft_strcmp(data->fractal, "julia.2"))
 		julia(data->fractal, data);
 	if (!ft_strcmp(data->fractal, "mandelbrot"))
 		mandelbrot(data);
@@ -53,9 +52,8 @@ int	zoom(int keycode, int x, int y, t_data *data)
 		data->y += dy * data->zoom / WIN_SIZE;
 	}
 	mlx_clear_window(data->ptr, data->win);
-	if (!ft_strcmp(data->fractal, "julia")
-		|| !ft_strcmp(data->fractal, "julia.1")
-		|| !ft_strcmp(data->fractal, "julia.2"))
+	if (!ft_strcmp(data->fractal, "julia") || !ft_strcmp(data->fractal,
+			"julia.1") || !ft_strcmp(data->fractal, "julia.2"))
 		julia(data->fractal, data);
 	if (!ft_strcmp(data->fractal, "mandelbrot"))
 		mandelbrot(data);
