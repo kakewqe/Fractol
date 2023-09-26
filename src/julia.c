@@ -6,7 +6,7 @@
 /*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:33:06 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/23 06:25:04 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/22 23:32:54 by zachamou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	iterate_julia(char *av, t_data *data)
 
 void	julia(char *av, t_data *data)
 {
-	// static int h = 0;
 	data->i = 0;
 	while (data->i < WIN_SIZE)
 	{
@@ -54,13 +53,10 @@ void	julia(char *av, t_data *data)
 			data->im = (data->j - WIN_SIZE / 2) * (data->zoom / WIN_SIZE)
 				+ data->y;
 			if (data->n < 100)
-				my_putpixel(data, data->i, data->j, iterate_julia(av, data)
-					* 0x000f0f * 100);
+				my_putpixel(data, data->i, data->j,
+					iterate_julia(av, data) * 0x000f0f * 100);
 			data->j++;
 		}
 		data->i++;
 	}
 }
-
-// si iter > 100 ||iter  < 4 NOIR
-// apres autre couleurs a test

@@ -6,7 +6,7 @@
 /*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 21:29:34 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/23 06:24:41 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/22 23:33:04 by zachamou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	iterate_mandelbrot(t_data *data)
 
 void	mandelbrot(t_data *data)
 {
-	// static int h = 0;
 	data->i = 0;
 	while (data->i < WIN_SIZE)
 	{
@@ -41,8 +40,8 @@ void	mandelbrot(t_data *data)
 			data->cons_im = (data->j - WIN_SIZE / 2.0) * data->zoom / WIN_SIZE
 				+ data->y;
 			if (data->n < 100)
-				my_putpixel(data, data->i, data->j, iterate_mandelbrot(data)
-					* 0x000f0f / 100);
+				my_putpixel(data, data->i, data->j,
+					iterate_mandelbrot(data) * 0x000f0f / 100);
 			data->j++;
 		}
 		data->i++;
