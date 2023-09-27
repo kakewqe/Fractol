@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouv.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zachamou <zachamou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zack <zack@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:07:12 by zachamou          #+#    #+#             */
-/*   Updated: 2023/09/26 06:06:56 by zachamou         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:53:03 by zack             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	my_putpixel(t_data *data, int x, int y, int color)
 	char	*dst;
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-		*(unsigned int *)dst = color;
+	*( int *)dst = color;
 }
 
 int	mouse_and_esc(int keycode, t_data *data)
@@ -25,10 +25,8 @@ int	mouse_and_esc(int keycode, t_data *data)
 	if (keycode == ESC_KEY)
 		ft_close(data);
 	mlx_clear_window(data->ptr, data->win);
-	if (!ft_strcmp(data->fractal, "julia")
-		|| !ft_strcmp(data->fractal, "julia.1")
-		|| !ft_strcmp(data->fractal, "julia.2"))
-		julia(data->fractal, data);
+	if (!ft_strcmp(data->fractal, "julia"))
+		julia(data);
 	if (!ft_strcmp(data->fractal, "mandelbrot"))
 		mandelbrot(data);
 	return (0);
@@ -53,12 +51,11 @@ int	zoom(int keycode, int x, int y, t_data *data)
 		data->y += dy * data->zoom / WIN_SIZE;
 	}
 	mlx_clear_window(data->ptr, data->win);
-	if (!ft_strcmp(data->fractal, "julia")
-		|| !ft_strcmp(data->fractal, "julia.1")
-		|| !ft_strcmp(data->fractal, "julia.2"))
-		julia(data->fractal, data);
+	if (!ft_strcmp(data->fractal, "julia"))
+		julia(data);
 	if (!ft_strcmp(data->fractal, "mandelbrot"))
 		mandelbrot(data);
 	mlx_put_image_to_window(data->ptr, data->win, data->img, 0, 0);
 	return (0);
 }
+
