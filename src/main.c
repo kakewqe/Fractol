@@ -12,6 +12,7 @@
 
 #include "../inc/fractol.h"
 
+//ft_bezzero
 void	init(t_data *data)
 {
 	data->ptr = NULL;
